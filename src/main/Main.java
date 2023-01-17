@@ -677,6 +677,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	Label lblProductTransactionHistory;
 	Label lblQuantityTransactionHistory;
 	
+	Label lblCurrentSelectedID;
+	
 	TableView<Product> productTableTransactionHistory;
 	TableView<CheckOut> checkOutTableTransactionHistory;
 	
@@ -709,6 +711,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		lblProductTransactionHistory = new Label("productID");
 		lblQuantityTransactionHistory = new Label("Quantity");
 		
+		lblCurrentSelectedID = new Label("Current selected ID: ");
+		
 		productTableTransactionHistory = new TableView<>();
 		checkOutTableTransactionHistory = new TableView<>();
 		
@@ -718,25 +722,13 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	
 	public void initTransactionHistoryForm() {
 		
-//		paneAreaBuyProduct.getChildren().add(mBarBuyProduct);
-//				
-//		mBarBuyProduct.getMenus().addAll(mUserBuyProduct, mTransactionBuyProduct);
-//		mUserBuyProduct.getItems().addAll(mItemLogOutBuyProduct);
-//		mTransactionBuyProduct.getItems().addAll(mItemBuyProductBuyProduct, mItemViewTransactionBuyProduct);
-//			
-//		gpBuyProduct.add(lblIDBuyProduct, 0, 0);
-//		gpBuyProduct.add(lblNameBuyProduct, 0, 1);
-//		gpBuyProduct.add(lblQuantityBuyProduct, 0, 2);
-//		gpBuyProduct.add(lblStockBuyProduct, 3, 0);
-//		gpBuyProduct.add(lblTypeIDBuyProduct, 3, 1);
-//		gpBuyProduct.add(lblPriceBuyProduct, 3, 2);
-//		
-//		gpBuyProduct.setVgap(10);
-//		gpBuyProduct.setHgap(10);
-//		gpBuyProduct.setPadding(new Insets (10));
-//		
-//		gpBuyProduct.setAlignment(Pos.CENTER);
-//		
+		paneAreaTransactionHistory.getChildren().add(mBarTransactionHistory);
+		
+		mBarTransactionHistory.getMenus().addAll(mUserTransactionHistory, mTransactionTransactionHistory);
+		
+		mUserTransactionHistory.getItems().addAll(mItemLogOutTransactionHistory);
+		mTransactionTransactionHistory.getItems().addAll(mItemBuyProductTransactionHistory, mItemViewTransactionHistory);
+
 //		gpWindowBuyProduct.add(productTableBuyProduct, 0, 0); //tabelProduk
 //		gpWindowBuyProduct.add(gpBuyProduct, 0, 1); //textfield
 //		gpWindowBuyProduct.add(fp1BuyProduct, 0, 2);
