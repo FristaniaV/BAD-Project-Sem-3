@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -34,6 +35,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import jfxtras.labs.scene.control.window.CloseIcon;
@@ -376,6 +378,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	
 	ScrollPane spBuyProduct;
 	
+	HBox hbBuyProduct;
+	
 	public void initBuyProduct() {
 		bpBuyProduct = new BorderPane();
 		gpBuyProduct = new GridPane();
@@ -652,102 +656,350 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 	// ===========================================================================================================
 	// Transaction History
 	
-	Scene sceneTransactionHistory; 
-	BorderPane bpTransactionHistory;
-	GridPane gpTransactionHistory;
-	GridPane gpWindowTransactionHistory;
-	FlowPane fp1TransactionHistory;
-	FlowPane fp2TransactionHistory;
-	Pane paneAreaTransactionHistory;
-	Window windowTransactionHistory;
-	
-	MenuBar mBarTransactionHistory;
-	
-	Menu mUserTransactionHistory;
-	Menu mTransactionTransactionHistory;
-	
-	MenuItem mItemLogOutTransactionHistory;
-	MenuItem mItemBuyProductTransactionHistory;
-	MenuItem mItemViewTransactionHistory;
-	
-	Label lblIDTransactionHistory1;
-	Label lblDateTransactionHistory;
-	
-	Label lblIDTransactionHistory2;
-	Label lblProductTransactionHistory;
-	Label lblQuantityTransactionHistory;
-	
-	Label lblCurrentSelectedID;
-	
-	TableView<Product> productTableTransactionHistory;
-	TableView<CheckOut> checkOutTableTransactionHistory;
-	
-	ScrollPane spTransactionHistory;
-	
-	public void initTransactionHistory() {
-		
-		bpTransactionHistory = new BorderPane();
-		gpTransactionHistory = new GridPane();
-		gpWindowTransactionHistory = new GridPane();
-		fp1TransactionHistory = new FlowPane();
-		fp2TransactionHistory = new FlowPane();
-		paneAreaTransactionHistory = new Pane();
-		windowTransactionHistory = new Window();
-		spTransactionHistory = new ScrollPane();
-		
-		mBarTransactionHistory = new MenuBar();
-		
-		mUserTransactionHistory = new Menu("User");
-		mTransactionTransactionHistory = new Menu("Transaction");
-		
-		mItemLogOutTransactionHistory = new MenuItem("Log Out");
-		mItemBuyProductTransactionHistory = new MenuItem("Buy Product");
-		mItemViewTransactionHistory = new MenuItem("View Transaction");
-	
-		lblIDTransactionHistory1 = new Label("transactionID");
-		lblDateTransactionHistory = new Label("transactionDate");
-		
-		lblIDTransactionHistory2 = new Label("transactionID");
-		lblProductTransactionHistory = new Label("productID");
-		lblQuantityTransactionHistory = new Label("Quantity");
-		
-		lblCurrentSelectedID = new Label("Current selected ID: ");
-		
-		productTableTransactionHistory = new TableView<>();
-		checkOutTableTransactionHistory = new TableView<>();
-		
-		sceneTransactionHistory = new Scene(bpTransactionHistory, 750, 600);
-		
-	}
-	
-	public void initTransactionHistoryForm() {
-		
-		paneAreaTransactionHistory.getChildren().add(mBarTransactionHistory);
-		
-		mBarTransactionHistory.getMenus().addAll(mUserTransactionHistory, mTransactionTransactionHistory);
-		
-		mUserTransactionHistory.getItems().addAll(mItemLogOutTransactionHistory);
-		mTransactionTransactionHistory.getItems().addAll(mItemBuyProductTransactionHistory, mItemViewTransactionHistory);
-
-//		gpWindowBuyProduct.add(productTableBuyProduct, 0, 0); //tabelProduk
-//		gpWindowBuyProduct.add(gpBuyProduct, 0, 1); //textfield
-//		gpWindowBuyProduct.add(fp1BuyProduct, 0, 2);
-//		gpWindowBuyProduct.add(checkOutTableBuyProduct, 0, 3);
-//		gpWindowBuyProduct.add(fp2BuyProduct, 0, 4);
-//		
-//		gpWindowBuyProduct.setAlignment(Pos.CENTER); 
-//		
-//		windowBuyProduct.getRightIcons().add(new CloseIcon(windowBuyProduct));
-//		windowBuyProduct.getLeftIcons().add(new MinimizeIcon(windowBuyProduct));
-//		
-//		windowBuyProduct.getContentPane().getChildren().add(gpWindowBuyProduct);		
+//	Scene sceneTransactionHistory; 
+//	BorderPane bpTransactionHistory;
+//	GridPane gpTransactionHistory;
+//	GridPane gpWindowTransactionHistory;
+//	FlowPane fp1TransactionHistory;
+//	FlowPane fp2TransactionHistory;
+//	Pane paneAreaTransactionHistory;
+//	Window windowTransactionHistory;
 //	
-//		bpBuyProduct.setTop(paneAreaBuyProduct);
-//		bpBuyProduct.setCenter(windowBuyProduct);
-		
-	}
+//	MenuBar mBarTransactionHistory;
+//	
+//	Menu mUserTransactionHistory;
+//	Menu mTransactionTransactionHistory;
+//	
+//	MenuItem mItemLogOutTransactionHistory;
+//	MenuItem mItemBuyProductTransactionHistory;
+//	MenuItem mItemViewTransactionHistory;
+//	
+//	Label lblIDTransactionHistory1;
+//	Label lblDateTransactionHistory;
+//	
+//	Label lblIDTransactionHistory2;
+//	Label lblProductTransactionHistory;
+//	Label lblQuantityTransactionHistory;
+//	
+//	Label lblCurrentSelectedID;
+//	
+//	TableView<Product> productTableTransactionHistory;
+//	TableView<CheckOut> checkOutTableTransactionHistory;
+//	
+//	ScrollPane spTransactionHistory;
+//	
+//	public void initTransactionHistory() {
+//		
+//		bpTransactionHistory = new BorderPane();
+//		gpTransactionHistory = new GridPane();
+//		gpWindowTransactionHistory = new GridPane();
+//		fp1TransactionHistory = new FlowPane();
+//		fp2TransactionHistory = new FlowPane();
+//		paneAreaTransactionHistory = new Pane();
+//		windowTransactionHistory = new Window();
+//		spTransactionHistory = new ScrollPane();
+//		
+//		mBarTransactionHistory = new MenuBar();
+//		
+//		mUserTransactionHistory = new Menu("User");
+//		mTransactionTransactionHistory = new Menu("Transaction");
+//		
+//		mItemLogOutTransactionHistory = new MenuItem("Log Out");
+//		mItemBuyProductTransactionHistory = new MenuItem("Buy Product");
+//		mItemViewTransactionHistory = new MenuItem("View Transaction");
+//	
+//		lblIDTransactionHistory1 = new Label("transactionID");
+//		lblDateTransactionHistory = new Label("transactionDate");
+//		
+//		lblIDTransactionHistory2 = new Label("transactionID");
+//		lblProductTransactionHistory = new Label("productID");
+//		lblQuantityTransactionHistory = new Label("Quantity");
+//		
+//		lblCurrentSelectedID = new Label("Current selected ID: ");
+//		
+//		productTableTransactionHistory = new TableView<>();
+//		checkOutTableTransactionHistory = new TableView<>();
+//		
+//		sceneTransactionHistory = new Scene(bpTransactionHistory, 750, 600);
+//		
+//	}
+//	
+//	public void initTransactionHistoryForm() {
+//		
+//		paneAreaTransactionHistory.getChildren().add(mBarTransactionHistory);
+//		
+//		mBarTransactionHistory.getMenus().addAll(mUserTransactionHistory, mTransactionTransactionHistory);
+//		
+//		mUserTransactionHistory.getItems().addAll(mItemLogOutTransactionHistory);
+//		mTransactionTransactionHistory.getItems().addAll(mItemBuyProductTransactionHistory, mItemViewTransactionHistory);
+//
+//		
+//		
+////		gpWindowBuyProduct.add(productTableBuyProduct, 0, 0); //tabelProduk
+////		gpWindowBuyProduct.add(gpBuyProduct, 0, 1); //textfield
+////		gpWindowBuyProduct.add(fp1BuyProduct, 0, 2);
+////		gpWindowBuyProduct.add(checkOutTableBuyProduct, 0, 3);
+////		gpWindowBuyProduct.add(fp2BuyProduct, 0, 4);
+////		
+////		gpWindowBuyProduct.setAlignment(Pos.CENTER); 
+////		
+////		windowBuyProduct.getRightIcons().add(new CloseIcon(windowBuyProduct));
+////		windowBuyProduct.getLeftIcons().add(new MinimizeIcon(windowBuyProduct));
+////		
+////		windowBuyProduct.getContentPane().getChildren().add(gpWindowBuyProduct);		
+////	
+////		bpBuyProduct.setTop(paneAreaBuyProduct);
+////		bpBuyProduct.setCenter(windowBuyProduct);
+//		
+//	}
 	
+	 Scene sceneTransactionHistory; 
+	 BorderPane bpTransactionHistory;
+	 GridPane gpTransactionHistory;
+	 GridPane gpWindowTransactionHistory;
+	 FlowPane fp1TransactionHistory;
+	 FlowPane fp2TransactionHistory;
+	 Pane paneAreaTransactionHistory;
+	 Window windowTransactionHistory;
+	 
+	 MenuBar mBarTransactionHistory;
+	 
+	 Menu mUserTransactionHistory;
+	 Menu mTransactionTransactionHistory;
+	 
+	 MenuItem mItemLogOutTransactionHistory;
+	 MenuItem mItemBuyProductTransactionHistory;
+	 MenuItem mItemViewTransactionHistory;
+	 
+	 Label lblIDTransactionHistory1;
+	 Label lblDateTransactionHistory;
+	 
+	 Label lblIDTransactionHistory2;
+	 Label lblProductTransactionHistory;
+	 Label lblQuantityTransactionHistory;
+	 
+	 Label lbCurrentSelectedID;
+	 
+	 TableView<HeaderTransaction> headerTransactionTable;
+	 TableView<TransactionHistory> transactionHistoryTable;
 
+	 
+	 ScrollPane spTransactionHistory;
+	 
+	 public void initTransactionHistory() {
+	  
+	  bpTransactionHistory = new BorderPane();
+	  gpTransactionHistory = new GridPane();
+	  gpWindowTransactionHistory = new GridPane();
+	  fp1TransactionHistory = new FlowPane();
+	  fp2TransactionHistory = new FlowPane();
+	  paneAreaTransactionHistory = new Pane();
+	  windowTransactionHistory = new Window();
+	  spTransactionHistory = new ScrollPane();
+	  
+	  mBarTransactionHistory = new MenuBar();
+	  
+	  mUserTransactionHistory = new Menu("User");
+	  mTransactionTransactionHistory = new Menu("Transaction");
+	  
+	  mItemLogOutTransactionHistory = new MenuItem("Log Out");
+	  mItemBuyProductTransactionHistory = new MenuItem("Buy Product");
+	  mItemViewTransactionHistory = new MenuItem("View Transaction");
+	 
+	  lblIDTransactionHistory1 = new Label("transactionID");
+	  lblDateTransactionHistory = new Label("transactionDate");
+	  
+	  lblIDTransactionHistory2 = new Label("transactionID");
+	  lblProductTransactionHistory = new Label("productID");
+	  lblQuantityTransactionHistory = new Label("Quantity");
+	  
+	  lbCurrentSelectedID = new Label ("Current Selected ID");
+	  
+	  headerTransactionTable = new TableView<>();
+	  transactionHistoryTable = new TableView<>();
+	  
+	  sceneTransactionHistory = new Scene(bpTransactionHistory, 750, 600);
+	  
+	 }
+	 
+	 public void initTransactionHistoryForm() {
+	  
+	  paneAreaBuyProduct.getChildren().add(mBarTransactionHistory);
+	  
+	  mBarBuyProduct.getMenus().addAll(mUserBuyProduct, mTransactionBuyProduct);
+	  mUserBuyProduct.getItems().addAll(mItemLogOutBuyProduct);
+	  mTransactionBuyProduct.getItems().addAll(mItemBuyProductBuyProduct, mItemViewTransactionBuyProduct);
+	 
+	  gpTransactionHistory.add(lbCurrentSelectedID, 0, 0);
+	  
+	  gpWindowTransactionHistory.add(headerTransactionTable, 0, 0);
+	  gpWindowTransactionHistory.add(gpTransactionHistory, 0, 1);
+	  gpWindowTransactionHistory.add(transactionHistoryTable, 0, 2);
+	    
+	  windowTransactionHistory.getRightIcons().add(new CloseIcon(windowTransactionHistory));
+	  windowTransactionHistory.getLeftIcons().add(new MinimizeIcon(windowTransactionHistory));
+	  
+	  windowTransactionHistory.getContentPane().getChildren().add(windowTransactionHistory);  
+	 
+	  bpTransactionHistory.setTop(paneAreaTransactionHistory);
+	  bpTransactionHistory.setCenter(windowTransactionHistory);
+	  
+	 }
+	
+	 // =============================================================
+	 // Manage Product Form
+	 
+	 Scene sceneManageProduct;
+	 BorderPane bpManageProduct;
+	 GridPane gpManageProduct;
+	 GridPane gpWindowManageProduct;
+	 FlowPane fp1ManageProduct;
+	 FlowPane fp2ManageProduct;
+	 FlowPane fp3ManageProduct;
+	 Pane paneAreaManageProduct;
+	 Window windowManageProduct;
+	 
+	 MenuBar mBarManageProduct;
+	 
+	 Menu mUserManageProduct;
+	 Menu mManageProduct;
+	  
+	 Label lblProductIDManageProduct;
+	 Label lblProductStockManageProduct;
+	 Label lblProductNameManageProduct;
+	 Label lblProductTypeManageProduct;
+	 Label lblProductPriceManageProduct;
+	 
+	 Label lblNameManageProduct;
+	 Label lblAddNewStockManageProduct;
+	 Label lblNewTypeManageProduct;
+	 Label lblPriceManageProduct;
+	 
+	 TextField tfNameManageProduct;
+	 TextField tfPriceManageProduct;
+	 
+	 Spinner <Integer> qtySpinnerManageProduct;
+	 
+	 ComboBox<String> cbNewTypeManageProduct;
+	 
+//	 HBox hbRemoveManageProduct;
+//	 HBox hbUpdateManageProduct;
+//	 HBox hbInsertManageProduct;
+	 
+	 ScrollPane spManageProduct;
+	 
+	 public void initManageProduct() {
+	  bpManageProduct = new BorderPane();
+	  gpManageProduct = new GridPane();
+	  fp1ManageProduct = new FlowPane();
+	  fp2ManageProduct = new FlowPane();
+	  fp3ManageProduct = new FlowPane();
+	  gpWindowManageProduct = new GridPane();
+	  paneAreaManageProduct = new Pane();
+	  
+	  mBarManageProduct = new MenuBar();
+	  mUserManageProduct = new Menu("User");
+	  mManageProduct = new Menu("Manage");
+	    
+	  windowManageProduct = new Window("Manage Product");
+	    
+	  lblProductIDManageProduct = new Label("productID");
+	  lblProductStockManageProduct = new Label("productStock");
+	  lblProductNameManageProduct = new Label("productName");
+	  lblProductTypeManageProduct = new Label("productTypeID");
+	  lblProductPriceManageProduct = new Label("productPrice");
+	  
+	  lblNameManageProduct = new Label("Name");
+	  lblAddNewStockManageProduct = new Label("Add/New Stock");
+	  lblNewTypeManageProduct = new Label("New Type");
+	  lblPriceManageProduct = new Label("Price");
+	  
+	  tfNameManageProduct = new TextField();
+	  tfPriceManageProduct = new TextField();
+	  
+	  tfNameManageProduct.setEditable(false);
+	  tfPriceManageProduct.setEditable(false);
+	  
+	  qtySpinnerManageProduct = new Spinner <>(0, 100, 0);
+	  
+	  cbNewTypeManageProduct = new ComboBox<>();
+	  cbNewTypeManageProduct.setItems(FXCollections.observableArrayList(
+	    "Futsal", "Badminton", "PinkPonk4", "Volley Ball"));
+	  
+//	  HBox hbRemoveManageProduct = new HBox(10, hbUpdateManageProduct, hbInsertManageProduct);
+//	  HBox hbUpdateManageProduct = new HBox(10, hbRemoveManageProduct, hbInsertManageProduct);
+//	  HBox hbInsertManageProduct = new HBox(10, hbRemoveManageProduct, hbUpdateManageProduct);
+	  
+	  spManageProduct = new ScrollPane();
+	  spManageProduct.setFitToHeight(true);
+	    
+	  sceneManageProduct = new Scene(bpManageProduct, 750, 600);
+	 }
+	 
+	 public void initManageProductForm() {
+	  
+	  paneAreaManageProduct.getChildren().add(mBarManageProduct);
+//	    
+//	  mBarManageProduct.getMenus().addAll(mUserManageProduct, mManageProduct);
+//	  mUserManageProduct.getItems().addAll(mItemSignOutAdminMain);
+//	  mManageProduct.getItems().addAll(mItemManageProductAdminMain, mItemManageProductTypeAdminMain);
+	  
+		paneAreaAdminMain.getChildren().add(mBarAdminMain);
+		
+		mBarAdminMain.getMenus().addAll(mUserAdminMain, mManageAdminMain);
+		mUserAdminMain.getItems().addAll(mItemSignOutAdminMain);
+		mManageAdminMain.getItems().addAll(mItemManageProductAdminMain, mItemManageProductTypeAdminMain);
+	
+		sceneAdminMain = new Scene(paneAreaAdminMain, 800, 350);
+
+	  gpManageProduct.add(lblNameManageProduct, 0, 0);
+	  gpManageProduct.add(lblProductStockManageProduct, 0, 1);
+	  gpManageProduct.add(lblProductNameManageProduct, 0, 2);
+	  gpManageProduct.add(lblProductTypeManageProduct, 0, 3);
+	  gpManageProduct.add(lblProductPriceManageProduct, 0, 4);
+	  
+	  gpManageProduct.add(lblNameManageProduct, 1, 2);
+	  gpManageProduct.add(tfNameManageProduct, 1, 4);
+	  gpManageProduct.add(lblNameManageProduct, 2, 2);
+	  gpManageProduct.add(qtySpinnerManageProduct, 2, 4);
+	  gpManageProduct.add(lblNewTypeManageProduct, 3, 2);
+	  gpManageProduct.add(cbNewTypeManageProduct, 3, 4);
+	  gpManageProduct.add(lblPriceManageProduct, 4, 2);
+	  gpManageProduct.add(tfPriceManageProduct, 4, 4);
+	  
+//	  fp1ManageProduct.getChildren().add(hbRemoveManageProduct);
+	  fp1ManageProduct.setAlignment(Pos.CENTER);
+	  fp1ManageProduct.setPadding(new Insets (10));
+	  
+//	  fp2ManageProduct.getChildren().add(hbUpdateManageProduct);
+	  fp2ManageProduct.setAlignment(Pos.CENTER);
+	  fp2ManageProduct.setPadding(new Insets (10));
+	  
+//	  fp3ManageProduct.getChildren().add(hbInsertManageProduct);
+	  fp3ManageProduct.setAlignment(Pos.CENTER);
+	  fp3ManageProduct.setPadding(new Insets (10));
+	      
+	  gpManageProduct.setVgap(10);
+	  gpManageProduct.setHgap(10);
+	  gpManageProduct.setPadding(new Insets (10));
+	  
+	  gpManageProduct.setAlignment(Pos.CENTER);
+	  
+	  gpWindowManageProduct.add(gpManageProduct, 0, 1);
+	  gpWindowManageProduct.add(fp1ManageProduct, 0, 2);
+	  gpWindowManageProduct.add(fp2ManageProduct, 0, 3);
+	  gpWindowManageProduct.add(fp2ManageProduct, 0, 4);
+	  
+	  gpWindowManageProduct.setAlignment(Pos.CENTER); 
+	    
+	  windowManageProduct.getContentPane().getChildren().add(gpWindowManageProduct);  
+	 
+	  bpManageProduct.setTop(paneAreaManageProduct);
+	  bpManageProduct.setCenter(windowManageProduct);
+	 
+	 }
+	 
+	 
 	// INSERT DATA
 	
 	public void addDataRegis(String userIDDataReg, String unameDataReg, int ageDataReg, String emailDataReg, String genderDataReg, String passDataReg, String utypeDataReg) {
@@ -802,6 +1054,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 //			}
 //		});
 //	}
+	
+	
 	
 	
 	// REFRESH TABLE
@@ -1000,9 +1254,24 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		}
 	
 		
+		if (e.getSource() == mItemViewTransactionBuyProduct) {
+			initTransactionHistory();
+			initTransactionHistoryForm();
+			stage.setTitle("Shoes Station");
+			stage.setScene(sceneTransactionHistory);
+			stage.show();
+		}
+		
 		
 		
 		// Admin Main Form
+		if (e.getSource() == mItemManageProductAdminMain) {
+			initManageProduct();
+			initManageProductForm();
+			stage.setTitle("Shoes Station");
+			stage.setScene(sceneManageProduct);
+			stage.show();
+		}
 		// Belom bikin event dari admin main form
 
 	}
