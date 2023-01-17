@@ -649,6 +649,112 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 		
 	}
 	
+	// ===========================================================================================================
+	// Transaction History
+	
+	Scene sceneTransactionHistory; 
+	BorderPane bpTransactionHistory;
+	GridPane gpTransactionHistory;
+	GridPane gpWindowTransactionHistory;
+	FlowPane fp1TransactionHistory;
+	FlowPane fp2TransactionHistory;
+	Pane paneAreaTransactionHistory;
+	Window windowTransactionHistory;
+	
+	MenuBar mBarTransactionHistory;
+	
+	Menu mUserTransactionHistory;
+	Menu mTransactionTransactionHistory;
+	
+	MenuItem mItemLogOutTransactionHistory;
+	MenuItem mItemBuyProductTransactionHistory;
+	MenuItem mItemViewTransactionHistory;
+	
+	Label lblIDTransactionHistory1;
+	Label lblDateTransactionHistory;
+	
+	Label lblIDTransactionHistory2;
+	Label lblProductTransactionHistory;
+	Label lblQuantityTransactionHistory;
+	
+	TableView<Product> productTableTransactionHistory;
+	TableView<CheckOut> checkOutTableTransactionHistory;
+	
+	ScrollPane spTransactionHistory;
+	
+	public void initTransactionHistory() {
+		
+		bpTransactionHistory = new BorderPane();
+		gpTransactionHistory = new GridPane();
+		gpWindowTransactionHistory = new GridPane();
+		fp1TransactionHistory = new FlowPane();
+		fp2TransactionHistory = new FlowPane();
+		paneAreaTransactionHistory = new Pane();
+		windowTransactionHistory = new Window();
+		spTransactionHistory = new ScrollPane();
+		
+		mBarTransactionHistory = new MenuBar();
+		
+		mUserTransactionHistory = new Menu("User");
+		mTransactionTransactionHistory = new Menu("Transaction");
+		
+		mItemLogOutTransactionHistory = new MenuItem("Log Out");
+		mItemBuyProductTransactionHistory = new MenuItem("Buy Product");
+		mItemViewTransactionHistory = new MenuItem("View Transaction");
+	
+		lblIDTransactionHistory1 = new Label("transactionID");
+		lblDateTransactionHistory = new Label("transactionDate");
+		
+		lblIDTransactionHistory2 = new Label("transactionID");
+		lblProductTransactionHistory = new Label("productID");
+		lblQuantityTransactionHistory = new Label("Quantity");
+		
+		productTableTransactionHistory = new TableView<>();
+		checkOutTableTransactionHistory = new TableView<>();
+		
+		sceneTransactionHistory = new Scene(bpTransactionHistory, 750, 600);
+		
+	}
+	
+	public void initTransactionHistoryForm() {
+		
+//		paneAreaBuyProduct.getChildren().add(mBarBuyProduct);
+//				
+//		mBarBuyProduct.getMenus().addAll(mUserBuyProduct, mTransactionBuyProduct);
+//		mUserBuyProduct.getItems().addAll(mItemLogOutBuyProduct);
+//		mTransactionBuyProduct.getItems().addAll(mItemBuyProductBuyProduct, mItemViewTransactionBuyProduct);
+//			
+//		gpBuyProduct.add(lblIDBuyProduct, 0, 0);
+//		gpBuyProduct.add(lblNameBuyProduct, 0, 1);
+//		gpBuyProduct.add(lblQuantityBuyProduct, 0, 2);
+//		gpBuyProduct.add(lblStockBuyProduct, 3, 0);
+//		gpBuyProduct.add(lblTypeIDBuyProduct, 3, 1);
+//		gpBuyProduct.add(lblPriceBuyProduct, 3, 2);
+//		
+//		gpBuyProduct.setVgap(10);
+//		gpBuyProduct.setHgap(10);
+//		gpBuyProduct.setPadding(new Insets (10));
+//		
+//		gpBuyProduct.setAlignment(Pos.CENTER);
+//		
+//		gpWindowBuyProduct.add(productTableBuyProduct, 0, 0); //tabelProduk
+//		gpWindowBuyProduct.add(gpBuyProduct, 0, 1); //textfield
+//		gpWindowBuyProduct.add(fp1BuyProduct, 0, 2);
+//		gpWindowBuyProduct.add(checkOutTableBuyProduct, 0, 3);
+//		gpWindowBuyProduct.add(fp2BuyProduct, 0, 4);
+//		
+//		gpWindowBuyProduct.setAlignment(Pos.CENTER); 
+//		
+//		windowBuyProduct.getRightIcons().add(new CloseIcon(windowBuyProduct));
+//		windowBuyProduct.getLeftIcons().add(new MinimizeIcon(windowBuyProduct));
+//		
+//		windowBuyProduct.getContentPane().getChildren().add(gpWindowBuyProduct);		
+//	
+//		bpBuyProduct.setTop(paneAreaBuyProduct);
+//		bpBuyProduct.setCenter(windowBuyProduct);
+		
+	}
+	
 
 	// INSERT DATA
 	
