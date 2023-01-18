@@ -1262,6 +1262,15 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			stage.show();
 		}
 		
+		if (e.getSource() == mItemLogOutUserMain) {
+			stage.close();
+			initLogin();
+			initFormLogin();
+			stage.setTitle("Shoes Station");
+			stage.setScene(sceneLogin);
+			stage.show();
+		}
+		
 		
 		
 		// Admin Main Form
@@ -1270,6 +1279,15 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 			initManageProductForm();
 			stage.setTitle("Shoes Station");
 			stage.setScene(sceneManageProduct);
+			stage.show();
+		}
+		
+		if (e.getSource() == mItemSignOutAdminMain) {
+			stage.close();
+			initLogin();
+			initFormLogin();
+			stage.setTitle("Shoes Station");
+			stage.setScene(sceneLogin);
 			stage.show();
 		}
 		// Belom bikin event dari admin main form
